@@ -190,7 +190,7 @@ function compare() {
 	    }
     }
 }
-
+//game win
 function win() {
 	sound(buttons.win); //plays winning sound
 	h1.innerText = 'YOU WIN!!!' 
@@ -199,7 +199,7 @@ function win() {
 		reset(); //resets game on delay
 	}, 2000);
 }
-
+//function that proceeds to next round of play
 function nextRound() {
 	round++; //increments round number
 	roundNumber.innerText = round; //adjusts round number display
@@ -207,7 +207,7 @@ function nextRound() {
 		init(); //initializes another round of play with 1 sec delay
 	}, 1000);
 }
-
+//game loss
 function lose() {
 	sound(buttons.wrong); //plays buzzer for loss
 	h1.innerText = 'You Lose! Play Again!!'
