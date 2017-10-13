@@ -218,4 +218,4 @@ function replayRound() {
 		h1.style.display = 'none'; //hides message
 		execute(); //replays round on delay
 	}, 2000);
-
+}
