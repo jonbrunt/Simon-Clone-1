@@ -17,12 +17,12 @@ var colorsActive = false; //game button clikc availabililty
 var playList = [] //empty computer array for accepting random sequence generation
 var userClicks = []; //empty array for accepting data on user clicks in game
 //targeting buttons and game status elements
-var roundNumber = document.querySelector('#roundNumber');
-var strictStatus = document.querySelector('#strictStatus');
-var speedStatus = document.querySelector('#speedStatus');
-var h1 = document.querySelector('h1');
+const roundNumber = document.querySelector('#roundNumber');
+const strictStatus = document.querySelector('#strictStatus');
+const speedStatus = document.querySelector('#speedStatus');
+const h1 = document.querySelector('h1');
 //gives functionality to strict button
-var strictButton = document.querySelector('#strict');
+const strictButton = document.querySelector('#strict');
 strictButton.addEventListener('click', function() {
 	//toggles status of strict button based on current button mode
 	if(strictButtonActive) {
@@ -31,7 +31,7 @@ strictButton.addEventListener('click', function() {
 	}
 });
 //gives functionality to the start button
-var startButton = document.querySelector('#start');
+const startButton = document.querySelector('#start');
 startButton.addEventListener('click', function() {
 	this.setAttribute('disabled', '');
 	strictButtonActive = false; //disengages strict toggle button during play
@@ -44,7 +44,7 @@ startButton.addEventListener('click', function() {
 	}, 500);
 });
 //gives functionality to speed button and toggles speed/changes display for speed selection
-var speedButton = document.querySelector('#speed');
+const speedButton = document.querySelector('#speed');
 speedButton.addEventListener('click', function() {
 	if (speedFast === false) {speed = 400; speedStatus.innerText = 'Fast'; speedFast = true;}
 	else {speed = 700; speedStatus.innerText = 'Slow'; speedFast = false;}
@@ -54,10 +54,10 @@ document.querySelector('#reset').addEventListener('click', function() {
 	reset(); //calls reset function
 });
 //targets the four game playing buttons
-var red = document.querySelector('#red');
-var green = document.querySelector('#green');
-var blue = document.querySelector('#blue');
-var yellow = document.querySelector('#yellow');
+const red = document.querySelector('#red');
+const green = document.querySelector('#green');
+const blue = document.querySelector('#blue');
+const yellow = document.querySelector('#yellow');
 //array of arrays with constant button data for use in function call arguments and DOM manipulation
 const ref = [[red, 'red'], [green, 'green'], [blue, 'blue'], [yellow, 'yellow']];
 //adds functionality to game playing buttons if their current use status is allowed
@@ -141,7 +141,7 @@ function fire(x, y) {
 }
 //invokes tone for button pushed/played
 function sound(x) {
-	var audio = new Audio(x.sound); //uses data from object based on argument
+	let audio = new Audio(x.sound); //uses data from object based on argument
 	audio.play();
 }
 //changes pushed/played button color for 150ms, "lighting it up", based on object data for that button
@@ -158,7 +158,7 @@ function clickCheck() {
 }
 //function that compares user clicks to computer generated sequence and accordingly takes action
 function compare() {
-	var correct = true; //reassigns value of variable for each function call
+	let correct = true; //reassigns value of variable for each function call
 	//iterates over computer game sequence data 
 	for (i = 0; i < playList.length; i++) {
 		//compares user click data to sequence data for each index 
@@ -170,24 +170,16 @@ function compare() {
 	//if user entries matched sequence entries
 	if (correct) { 
 		//if round is equal to game length, accounts for game being won
-		if (playList.length === 20) {
-			win();
-    	}
+		if (playList.length === 20) {win();}
 		//else advances to next round of game
-		else {
-			nextRound();
-		}
+		else {nextRound();}
     }
     //else if user entries did not perfectly match
     else {
     	//if strict mode is active, resets the game
-    	if (strict) {
- 			lose();
-    	}
+    	if (strict) {lose();}
     	//else, replays the current round/sequence
-    	else {
-    		replayRound();
-	    }
+    	else {replayRound();}
     }
 }
 //game win
@@ -199,7 +191,7 @@ function win() {
 		reset(); //resets game on delay
 	}, 2000);
 }
-//function that proceeds to next round of play
+//advances to next round
 function nextRound() {
 	round++; //increments round number
 	roundNumber.innerText = round; //adjusts round number display
@@ -226,4 +218,4 @@ function replayRound() {
 		h1.style.display = 'none'; //hides message
 		execute(); //replays round on delay
 	}, 2000);
-}
+
