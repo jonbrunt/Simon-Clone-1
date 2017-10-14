@@ -8,14 +8,14 @@ const buttons = {
 	win: {sound: 'Assets/Sounds/zapsplat_multimedia_game_star_win_gain_x4_12390.mp3'} //audio for win also included here
 }
 //declares global variable and assigns initial values
-var round = 1; //initial round of play number
-var speed = 700; //sets initial "slow" speed
-var speedFast = false; // fast mode indicator
-var strict = false; //strict mode on/off indicator
-var strictButtonActive = true; //strict mode button availability
-var colorsActive = false; //game button clikc availabililty
-var playList = [] //empty computer array for accepting random sequence generation
-var userClicks = []; //empty array for accepting data on user clicks in game
+let round = 1; //initial round of play number
+let speed = 700; //sets initial "slow" speed
+let speedFast = false; // fast mode indicator
+let strict = false; //strict mode on/off indicator
+let strictButtonActive = true; //strict mode button availability
+let colorsActive = false; //game button clikc availabililty
+let playList = [] //empty computer array for accepting random sequence generation
+let userClicks = []; //empty array for accepting data on user clicks in game
 //targeting buttons and game status elements
 const roundNumber = document.querySelector('#roundNumber');
 const strictStatus = document.querySelector('#strictStatus');
