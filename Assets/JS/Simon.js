@@ -10,7 +10,7 @@ const buttons = {
 //declares global variable and assigns initial values
 var round = 1; //initial round of play number
 var speed = 700; //sets initial "slow" speed
-var speedFast = false;
+var speedFast = false; // fast mode indicator
 var strict = false; //strict mode on/off indicator
 var strictButtonActive = true; //strict mode button availability
 var colorsActive = false; //game button clikc availabililty
